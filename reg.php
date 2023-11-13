@@ -38,7 +38,7 @@
                 <input class="col-4 input-group-text" type="submit" value="送出">
                 <input class="form-control" type="reset" value="重置">
             </div>
-        </classm>
+        </form>
     </div>
 
 </body>
