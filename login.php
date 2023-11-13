@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+$acc = $_POST['acc'];
+$pw = $_POST['pw'];
 
-<body>
-    <h3>
-        登入
-    </h3>
+$dsn = "mysql:host=localhost;charset=utf8;dbname=member";
+$pdo = new PDO($dsn, 'root', '');
 
-</body>
+$sql = "select * from users where `acc`='$acc' && `pw`='$pw'";
+$user = $pdo->query($sql)->fetchColumn();
+// print_r($user);
 
-</html>
+// if($user['acc']==$acc && $user['pw']==$pw){
+if ($user) {
+    $_SESSION['user'] = $acc;
+    header("location:index.php");
+} else {
+    header('location:login_form.php?error=帳號密碼錯誤');
+}
