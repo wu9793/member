@@ -1,3 +1,4 @@
+<?php include_once "./include/connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

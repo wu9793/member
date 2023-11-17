@@ -43,12 +43,12 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="acc" class="form-control form-control-lg" />
+                                            <input type="text" name="acc" id="acc" class="form-control form-control-lg" />
                                             <label class="form-label">帳號</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="pw" class="form-control form-control-lg" />
+                                            <input type="text" name="pw" id="pw" class="form-control form-control-lg" />
                                             <label class="form-label">密碼</label>
                                         </div>
 

@@ -1,7 +1,8 @@
 <?php
 
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
+include_once "./include/connect.php";
+// $dsn="mysql:host=localhost;charset=utf8;dbname=member";
+// $pdo=new PDO($dsn,'root','');
 // 資料檢查
 $acc=htmlspecialchars(trim($_POST['acc']));
 
