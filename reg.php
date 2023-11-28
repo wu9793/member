@@ -11,9 +11,13 @@
 </head>
 
 <body>
+    <!-- include 可在php程式執行過程中來引入檔案 -->
+    <!-- navbar -->
+    <?php include "./include/header.php"; ?>
+
     <div id="app" class="container">
         <h2 class="text-center">會員註冊</h2>
-        <form action="./add_user.php" method="post" class="col-4 m-auto">
+        <form action="../api/add_user.php" method="post" class="col-4 m-auto">
             <div class="input-group my-1">
                 <label class="col-4  input-group-text">帳號:</label>
                 <input class="form-control" type="text" name="acc" id="acc">
@@ -38,11 +42,11 @@
                 <input class="btn-primary mx-2" type="submit" value="送出">
                 <input class="btn btn-warning mx-2" type="reset" value="重置">
             </div>
-
-
-
         </form>
     </div>
+
+    <!-- footer -->
+    <?php include "./include/footer.php"; ?>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Taipei");
 $dsn="mysql:host=localhost;charset=utf8;dbname=member";
 $pdo=new PDO($dsn,'root','');
 session_start();
@@ -30,6 +31,28 @@ function all($table = null, $where = '', $other = '')
 }
 
 
+function total($table, $id)
+{
+    global $pdo;
+    $sql = "select count(`id`) from `$table` ";
+
+    // 判斷是否為陣列
+    if (is_array($id)) {
+        foreach ($id as $col => $value) {
+            $tmp[] = "`$col`='$value'";
+        }
+        $sql .= " where " . join(" && ", $tmp);
+        // 判斷是否為數字
+    } else if (is_numeric($id)) {
+        $sql .= " where `id`='$id'";
+    } else {
+        echo "錯誤:參數的資料型態必須是數字或陣列";
+    }
+    // echo 'find=>' . $sql;
+    $row = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
+
 function find($table, $id)
 {
     global $pdo;
@@ -47,7 +70,7 @@ function find($table, $id)
     } else {
         echo "錯誤:參數的資料型態必須是數字或陣列";
     }
-    echo 'find=>' . $sql;
+    // echo 'find=>' . $sql;
     $row = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
@@ -81,7 +104,7 @@ function update($table, $id, $cols)
         echo "錯誤:參數的資料型態必須是數字或陣列";
     }
 
-    echo $sql;
+    // echo $sql;
     return $pdo->exec($sql);
 }
 

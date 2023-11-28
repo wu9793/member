@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <!-- include 可在php程式執行過程中來引入檔案 -->
+    <?php include "./include/header.php"; ?>
+
     <section class="vh-100" style="background-color: #adb5bd;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -25,7 +28,7 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form action="login.php" method="post">
+                                    <form action="./api/login.php" method="post">
                                         <?php
                                         if (isset($_GET['error'])) {
                                             echo "<span style='color:red'>";
@@ -57,7 +60,7 @@
                                             <input type="reset" value="重置" class="btn btn-warning mx-2">
                                         </div>
 
-                                
+
                                     </form>
 
                                 </div>
@@ -68,6 +71,9 @@
             </div>
         </div>
     </section>
+
+    <!-- footer -->
+   <?php include "./include/footer.php";?>
 </body>
 
 </html>
